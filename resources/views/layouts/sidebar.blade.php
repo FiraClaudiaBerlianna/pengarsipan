@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,7 +78,10 @@
                 <a href="#" class="text-nowrap logo-img">
                     <img src="https://bnn.go.id/konten/unggahan/2019/03/bnn-250x250.png" width="60" alt="Logo" />
                 </a>
-                <div class="text-dark mx-3 fw-semibold fs-5">Arsiparis</div>
+                <div>
+                    <div class="text-dark mx-3 fw-semibold fs-5">Arsiparis</div>
+                    <div class="text-muted mx-3 fs-6">BNNK Ciamis</div> <!-- Teks tambahan -->
+                </div>
                 <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                     <i class="ti ti-x fs-8"></i>
                 </div>

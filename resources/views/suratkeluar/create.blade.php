@@ -7,7 +7,6 @@
     <title>Tambah Surat Keluar</title>
     <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="../backend/css/app.css" />
-    <!-- Tambahkan style tambahan -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -92,7 +91,7 @@
 
         .button-container {
             display: flex;
-            justify-content: flex-end; /* Menempatkan tombol di sebelah kanan */
+            justify-content: flex-end;
             margin-top: 15px;
         }
 
@@ -116,7 +115,7 @@
         <a href="{{ route('sidebar') }}" class="btn-back">Kembali</a>
 
         <h1>Tambah Surat Keluar</h1>
-        <form action="{{ route('surat_keluar.store') }}" method="POST">
+        <form action="{{ route('surat_keluar.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="nomor_surat">Nomor Surat</label>
@@ -143,6 +142,13 @@
                 <label for="isi">Isi</label>
                 <textarea name="isi" class="form-control @error('isi') is-invalid @enderror" rows="4" required>{{ old('isi') }}</textarea>
                 @error('isi')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="file_surat">File Surat (PDF/JPG)</label>
+                <input type="file" name="file_surat" class="form-control @error('file_surat') is-invalid @enderror" accept=".pdf,.jpg,.jpeg,.png">
+                @error('file_surat')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>

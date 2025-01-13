@@ -19,7 +19,7 @@
         <div class="container">
             <a href="#" class="navbar-brand d-flex align-items-center">
                 <img src="https://bnn.go.id/konten/unggahan/2019/03/bnn-250x250.png" width="40" alt="Logo BNN">
-                <span class="ms-2">Pengarsipan</span>
+                <span class="ms-2">Pengarsipan BNNK Ciamis</span>
             </a>
         </div>
     </nav>
