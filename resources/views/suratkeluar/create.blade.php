@@ -146,7 +146,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="file_surat">File Surat (PDF/JPG)</label>
+                <label for="file_surat">File Surat (Opsional)</label>
                 <input type="file" name="file_surat" class="form-control @error('file_surat') is-invalid @enderror" accept=".pdf,.jpg,.jpeg,.png">
                 @error('file_surat')
                 <div class="invalid-feedback">{{ $message }}</div>

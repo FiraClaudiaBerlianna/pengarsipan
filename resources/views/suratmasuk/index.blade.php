@@ -24,6 +24,7 @@
                 <th>Pengirim</th>
                 <th>Tanggal Terima</th>
                 <th>Isi</th>
+                <th>File Dokumen</th> <!-- Tambahan Kolom -->
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -35,6 +36,13 @@
                     <td>{{ $surat->pengirim }}</td>
                     <td>{{ \Carbon\Carbon::parse($surat->tanggal_terima)->format('d-m-Y') }}</td>
                     <td>{{ $surat->isi }}</td>
+                    <td>
+                        @if ($surat->file_surat)
+                            <a href="{{ asset('storage/surat_masuk/' . $surat->file_surat) }}" target="_blank" class="btn btn-sm btn-info">Lihat File</a>
+                        @else
+                            <span class="text-muted">Tidak ada file</span>
+                        @endif
+                    </td>
                     <td class="d-flex">
                         <!-- Tombol Edit -->
                         <a href="{{ route('surat_masuk.edit', $surat->id) }}" class="btn btn-sm btn-warning me-2">Edit</a>
@@ -51,7 +59,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" class="text-center">Tidak ada data surat masuk.</td>
+                    <td colspan="7" class="text-center">Tidak ada data surat masuk.</td>
                 </tr>
             @endforelse
         </tbody>

@@ -92,7 +92,8 @@
 
         .button-container {
             display: flex;
-            justify-content: flex-end; /* Menempatkan tombol di sebelah kanan */
+            justify-content: flex-end;
+            /* Menempatkan tombol di sebelah kanan */
             margin-top: 15px;
         }
 
@@ -116,38 +117,51 @@
         <a href="{{ route('sidebar') }}" class="btn-back">Kembali</a>
 
         <h1>Tambah Surat Masuk</h1>
-        <form action="{{ route('surat_masuk.store') }}" method="POST">
+        <form action="{{ route('surat_masuk.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="nomor_surat">Nomor Surat</label>
-                <input type="text" name="nomor_surat" class="form-control @error('nomor_surat') is-invalid @enderror" value="{{ old('nomor_surat') }}" required>
+                <input type="text" name="nomor_surat" class="form-control @error('nomor_surat') is-invalid @enderror"
+                    value="{{ old('nomor_surat') }}" required>
                 @error('nomor_surat')
-                <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="pengirim">Pengirim</label>
-                <input type="text" name="pengirim" class="form-control @error('pengirim') is-invalid @enderror" value="{{ old('pengirim') }}" required>
+                <input type="text" name="pengirim" class="form-control @error('pengirim') is-invalid @enderror"
+                    value="{{ old('pengirim') }}" required>
                 @error('pengirim')
-                <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="tanggal_terima">Tanggal Terima</label>
-                <input type="date" name="tanggal_terima" class="form-control @error('tanggal_terima') is-invalid @enderror" value="{{ old('tanggal_terima') }}" required>
+                <input type="date" name="tanggal_terima"
+                    class="form-control @error('tanggal_terima') is-invalid @enderror"
+                    value="{{ old('tanggal_terima') }}" required>
                 @error('tanggal_terima')
-                <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="isi">Isi</label>
-                <textarea name="isi" class="form-control @error('isi') is-invalid @enderror" rows="4" required>{{ old('isi') }}</textarea>
+                <textarea name="isi" class="form-control @error('isi') is-invalid @enderror" rows="4"
+                    required>{{ old('isi') }}</textarea>
                 @error('isi')
-                <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="file">Upload File (Opsional)</label>
+                <input type="file" name="file" class="form-control @error('file') is-invalid @enderror">
+                @error('file')
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <button type="submit" class="btn btn-success">Simpan</button>
         </form>
+
 
         <!-- Tombol Lihat Data Surat Masuk -->
         <div class="button-container">
